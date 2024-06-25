@@ -1,0 +1,275 @@
+[
+    "You're a professional and cautious C programmer, and you're very good at patching programs. Now I'm going to give you a patch and a piece of code to fix, but it's worth noting that the patch you've been given won't necessarily work directly with this code; you'll need to adapt it. You only need to adapt and fix the patch part, do not make any other fixes or improvements. Maintain the original style of the code as much as possible. Do not delete or add any comments in the code. You may notice that there are some missing parts in the code I gave you, but it's okay, don't fill in the missing parts. You just need to output the fixed code!
+
+### Original Function Patch:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
++  int hw, i;
++ u8 rates_max;
++ u8 *rates;
+  ret = lbs_set_radio(priv, preamble, 1);
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+-    int hw, i;
+-    u8 rates_max = rates_eid[1];
+-    u8 *rates = cmd.bss.rates;
++    rates_max = rates_eid[1];
++    if (rates_max > MAX_RATES) {
++      lbs_deb_join(\"invalid rates\");
++      goto out;
++    }
++    rates = cmd.bss.rates;
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+}
+
+### Function Before:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
+  ret = lbs_set_radio(priv, preamble, 1);
+/* placeholder: Do not delete this comment. */
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+/* placeholder: Do not delete this comment. */
+}
+
+### Function After:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
+  ret = lbs_set_radio(priv, preamble, 1);
+/* placeholder: Do not delete this comment. */
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+    int hw, i;
+    u8 rates_max = rates_eid[1];
+    u8 *rates = cmd.bss.rates;
+    if (rates_max > MAX_RATES) {
+      lbs_deb_join(\"invalid rates\");
+      goto out;
+    }
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+/* placeholder: Do not delete this comment. */
+}
+
+### Original Function Patch:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
++  int hw, i;
++ u8 rates_max;
++ u8 *rates;
+  ret = lbs_set_radio(priv, preamble, 1);
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+-    int hw, i;
+-    u8 rates_max = rates_eid[1];
+-    u8 *rates = cmd.bss.rates;
++    rates_max = rates_eid[1];
++    if (rates_max > MAX_RATES) {
++      lbs_deb_join(\"invalid rates\");
++      goto out;
++    }
++    rates = cmd.bss.rates;
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+}
+
+### Function Before:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
+  ret = lbs_set_radio(priv, preamble, 1);
+/* placeholder: Do not delete this comment. */
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+/* placeholder: Do not delete this comment. */
+}
+
+### Function After:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
+  ret = lbs_set_radio(priv, preamble, 1);
+/* placeholder: Do not delete this comment. */
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+    int hw, i;
+    u8 rates_max = rates_eid[1];
+    u8 *rates = cmd.bss.rates;
+    if (rates_max > MAX_RATES) {
+      lbs_deb_join(\"invalid rates\");
+      goto out;
+    }
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+/* placeholder: Do not delete this comment. */
+}
+
+### Original Function Patch:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
++  int hw, i;
++ u8 rates_max;
++ u8 *rates;
+  ret = lbs_set_radio(priv, preamble, 1);
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+-    int hw, i;
+-    u8 rates_max = rates_eid[1];
+-    u8 *rates = cmd.bss.rates;
++    rates_max = rates_eid[1];
++    if (rates_max > MAX_RATES) {
++      lbs_deb_join(\"invalid rates\");
++      goto out;
++    }
++    rates = cmd.bss.rates;
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+}
+
+### Function Before:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
+  ret = lbs_set_radio(priv, preamble, 1);
+/* placeholder: Do not delete this comment. */
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+/* placeholder: Do not delete this comment. */
+}
+
+### Function After:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  int ret = 0;
+  ret = lbs_set_radio(priv, preamble, 1);
+/* placeholder: Do not delete this comment. */
+  if (!rates_eid) {
+    lbs_add_rates(cmd.bss.rates);
+  } else {
+    int hw, i;
+    u8 rates_max = rates_eid[1];
+    u8 *rates = cmd.bss.rates;
+    if (rates_max > MAX_RATES) {
+      lbs_deb_join(\"invalid rates\");
+      goto out;
+    }
+    for (hw = 0; hw < ARRAY_SIZE(lbs_rates); hw++) {
+       u8 hw_rate = lbs_rates[hw].bitrate / 5;
+       for (i = 0; i < rates_max; i++) {
+        if (hw_rate == (rates_eid[i+2] & 0x7f)) {
+          u8 rate = rates_eid[i+2];
+          if (rate == 0x02 || rate == 0x04 || rate == 0x0b || rate == 0x16)
+            rate |= 0x80;
+          *rates++ = rate;
+        }
+      }
+    }
+  }
+/* placeholder: Do not delete this comment. */
+}
+
+### Original Function Patch:
+static int lbs_ibss_join_existing(struct lbs_private *priv, struct cfg80211_ibss_params *params, struct cfg80211_bss *bss)
+{
+  "
+]

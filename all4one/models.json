@@ -1,0 +1,13 @@
+{
+    "/home/Data/xac/nas/models/models--Qwen--CodeQwen1.5-7B-Chat/snapshots/7b0cc3380fe815e6f08fe2f80c03e05a8b1883d8": "通义千问7B Chat",
+    "/home/Data/xac/nas/models/models--NTQAI--Nxcode-CQ-7B-orpo/snapshots/74f3b3c06de36b261af9ef857279d6e33f893336":"Nxcode-CQ-7B-orpo (基于CodeQwen1.5-7B 高质量排名数据样本 模型微调)",
+    "/home/Data/xac/nas/models/models--m-a-p--OpenCodeInterpreter-DS-33B/snapshots/c7d9400bd7d099d22c971046ba7f455dab91ee8a": "OpenCodeInterpreter 是一系列开源代码生成系统，旨在弥合大型语言模型和高级专有系统（例如 GPT-4 代码解释器）之间的差距。它通过集成执行和迭代细化功能显着提高了代码生成能力。",
+    "/home/Data/xac/nas/models/models--codefuse-ai--CodeFuse-DeepSeek-33B/snapshots/23d5f4943c15e0eab23ab2afaebcab1d3d75521c": "CodeFuse-DeepSeek-33B 是一个通过QLoRA对基座模型DeepSeek-Coder-33B进行多代码任务微调而得到的代码大模型",
+    "/home/Data/xac/nas/models/models--deepseek-ai--deepseek-coder-33b-instruct/snapshots/61dc97b922b13995e7f83b7c8397701dbf9cfd4c": "deepseek-coder-33b-instruct 是一个从 deepseek-coder-33b-base 初始化并在指令数据的 2B 令牌上进行微调的 33B 参数模型。",
+    "/home/Data/xac/nas/models/models--Artigenz--Artigenz-Coder-DS-6.7B/snapshots/a0dea4a1c6cfdef8043c8accffa803887f444f45": "Artigenz-Coder-DS-6.7B 在 DeepSeek-Coder-6.7B-Base 上进行了微调",
+    "/home/Data/xac/nas/models/models--deepseek-ai--deepseek-coder-6.7b-instruct/snapshots/e5d64addd26a6a1db0f9b863abf6ee3141936807": "deepseek-coder-6.7b-instruct 是一个从 deepseek-coder-6.7b-base 初始化并在指令数据的 2B 令牌上进行微调的 6.7B 参数模型",
+    "/home/Data/xac/nas/models/models--m-a-p--OpenCodeInterpreter-DS-6.7B/snapshots/60b89884df814590abd76757a6db4a527cbdfc91": "OpenCodeInterpreter 是一系列开源代码生成系统，旨在弥合大型语言模型和高级专有系统（例如 GPT-4 代码解释器）之间的差距。它通过集成执行和迭代细化功能显着提高了代码生成能力。",
+    "/home/Data/xac/nas/models/models--Phind--Phind-CodeLlama-34B-v2/snapshots/949f61e203f91b412efe8f679c798f09f0ff4b0c": "在额外的 1.5B 代币高质量编程相关数据上对 Phind-CodeLlama-34B-v1 进行了微调，在 HumanEval 上实现了 73.8% pass@1。这是当前开源模型中最先进的",
+    "/home/Data/xac/nas/models/models--codellama--CodeLlama-13b-Instruct-hf/snapshots/745795438019e47e4dad1347a0093e11deee4c68": "羊驼 13b 微调",
+    "/home/Data/xac/nas/models/models--codellama--CodeLlama-34b-Instruct-hf/snapshots/d4c1c474abcacd32d2a6eda45f9811d38c83e93d": "羊驼 34b 微调"
+}
